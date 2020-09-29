@@ -1,0 +1,14 @@
+enum EventType {
+  STAKED
+  REWARDPAID
+  WITHDRAWN
+}
+
+type YfiEvent @entity {
+  id: ID! # hash of transaction in which the event was emitted
+  amount: BigInt!
+  user: Bytes!
+  eventType: EventType!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+}
