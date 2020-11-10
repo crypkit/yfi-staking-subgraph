@@ -1,11 +1,12 @@
 enum EventType {
-  STAKED
-  REWARDPAID
-  WITHDRAWN
+  REWARD
+  STAKE
+  WITHDRAWAL
 }
 
 type YfiEvent @entity {
-  id: ID! # hash of transaction in which the event was emitted
+  id: ID! # {tx_hash}-{logInfo}
+  txHash: Bytes!
   amount: BigInt!
   user: Bytes!
   eventType: EventType!
